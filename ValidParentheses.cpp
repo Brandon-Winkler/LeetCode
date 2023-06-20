@@ -31,10 +31,11 @@ public:
 int main() {
     //initialize strings
     std::string parens1 = "(({[]}))", parens2 = "({]})", parens3 = "[](){}";
-    //initialize solutions class
+
+    //initialize solution class
     Solution solution;
 
-    //print results
+    //call isValid method and print results
     std::cout << solution.isValid(parens1) << '\n';
     std::cout << solution.isValid(parens2) << '\n';
     std::cout << solution.isValid(parens3) << '\n';
