@@ -12,7 +12,7 @@ public:
             min = nums[mid];
 
         // if nums are empty return NULL
-        if(nums.empty()) return NULL;
+        if(nums.empty()) return 0;
 
         // loop through array to find the smallest element
         while(lhs <= rhs) {
@@ -36,7 +36,7 @@ public:
 int main() {
 
     // initialize vector
-    std::vector<int> list = {4,5,6,7,1,2,3};
+    std::vector<int> list = {4,5,6,7,1,3};
 
     // create class instance
     Solution Solution;
