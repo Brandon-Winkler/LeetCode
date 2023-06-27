@@ -11,7 +11,7 @@ public:
             mid = (nums.size() - 1) / 2,
             min = nums[mid];
 
-        // if nums are empty return NULL
+        // if nums are empty return 0;
         if(nums.empty()) return 0;
 
         // loop through array to find the smallest element
