@@ -61,7 +61,7 @@ public:
 int main() {
 
     // vector of strings:
-    std::vector<std::string> list = {"5","2","4","C","D","9","+","+"};
+    std::vector<std::string> list = {"5","-2","4","C","D","9","+","+"};
 
     // class instance
     Solution Solution;
