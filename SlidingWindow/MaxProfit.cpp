@@ -8,7 +8,7 @@ public:
         // if prices are empty or there is only one price then return 0
         if (prices.empty() || prices.size() == 1) return 0;
 
-        // initialize minimum price and max profit
+        // initialize minimum price to track left side of window and max profit to track output
         int minPrice = prices[0];
         int maxProfit = 0;
 
