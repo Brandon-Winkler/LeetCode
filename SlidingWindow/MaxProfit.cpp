@@ -1,5 +1,4 @@
 #include <vector>
-#include <algorithm>
 #include <iostream>
 
 class Solution {
@@ -13,19 +12,16 @@ public:
         int minPrice = prices[0];
         int maxProfit = 0;
 
-        // loop through prices to find the minimum and get max profit
-        for (int i = 1; i < prices.size(); ++i) {
-            int currentPrice = prices[i];
-            if (currentPrice < minPrice) {
-                minPrice = currentPrice;
-            } else {
-                int currentProfit = currentPrice - minPrice;
-                if (currentProfit > maxProfit)
-                    maxProfit = currentProfit;
+        for (int i=1;i<prices.size();++i){
+            int currentPrice = prices[i]; // set current prince to prices at i to compare right side of window to left side
+            if (currentPrice < minPrice){ // case where right side of window is less than left side
+                minPrice = currentPrice; // set min price to current price to increment left side of window
+            } 
+            else{ // case where right side of window is greater than left side
+                int currentProfit = currentPrice - minPrice; // set current profit to right side minus left side
+                if (currentProfit > maxProfit) maxProfit = currentProfit; // if current profit is greater than max profit set max equal to current
             }
         }
-
-        // return max profit
         return maxProfit;
     }
 };
