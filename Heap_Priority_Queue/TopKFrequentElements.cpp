@@ -12,7 +12,7 @@ public:
 
         for(int i=0;i<nums.size();++i) map[nums[i]]++; // loop through nums vector and update frequency map
 
-        // initialize min priority que to access top most frequence elements
+        // initialize min priority que to access top most frequent elements
         std::priority_queue<std::pair<int, int>, std::vector<std::pair<int, int>>, std::greater<std::pair<int, int>>> pq;
 
         for(const auto &pair : map){ // loop through frequency map
@@ -60,6 +60,6 @@ int main(){
 
     std::cout<<"Most frequenct elements in nums3: "<<'\n';
     printVector(res3);
-    
+
     return 0;
 }
