@@ -58,7 +58,7 @@ int main(){
     std::cout<<"Most frequent elements in nums2: "<<'\n';
     printVector(res2);
 
-    std::cout<<"Most frequenct elements in nums3: "<<'\n';
+    std::cout<<"Most frequent elements in nums3: "<<'\n';
     printVector(res3);
 
     return 0;
