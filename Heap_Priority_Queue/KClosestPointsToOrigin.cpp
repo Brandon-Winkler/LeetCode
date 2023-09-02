@@ -5,20 +5,14 @@
 #include <math.h>
 
 class Solution {
-private:
-    float distance(int x, int y){ // create helper function for distance formula
-        return sqrt(pow(x-0, 2) + pow(y-0, 2));
-    }
 public:
     std::vector<std::vector<int>> kClosest(std::vector<std::vector<int>>& points, int k) {
         std::vector<std::vector<int>> ans; // vector for output
         std::priority_queue<std::pair<float, int>> pq; // max priority queue to keep track of closest points
-        std::pair<float, int> dist; // pair for distance number and distance index
 
         for(int i=0;i<points.size();++i){ // begin loop through points
-            dist.first = distance(points[i][0], points[i][1]); // set distance of point into first of dist
-            dist.second = i; // set associated index of point to second of dist
-            pq.push(dist); // push pair into priority queue
+            float dist = sqrt(pow(points[i][0], 2) + pow(points[i][1], 2)); // set distance of point into dist variable
+            pq.push(std::make_pair(dist, i)); // push pair into priority queue
             if(pq.size() > k) pq.pop(); // if priority queue becomes larger than k pop top (max pair)
         }
 
