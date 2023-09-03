@@ -50,7 +50,7 @@ public:
 void printVector(std::vector<int> v) {
     std::cout<<"[";
     for(int i=0;i<v.size();++i){
-        std::cout<< " "<<v[i]<<" ";
+        std::cout<<" "<<v[i]<<" ";
     }
     std::cout<<"]"<<'\n';
 }
