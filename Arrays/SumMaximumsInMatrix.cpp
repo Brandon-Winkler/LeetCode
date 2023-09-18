@@ -31,6 +31,10 @@ int main(){
     };
 
     // create solution class instance
+    Solution Solution;
 
+    // output
+    std::cout<<"The sum of all the maximums in the matrix is: "<<Solution.matrixSum(matrix)<<'\n';
+    
     return 0;
 }
