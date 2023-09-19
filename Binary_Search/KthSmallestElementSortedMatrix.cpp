@@ -34,21 +34,21 @@ public:
 int main(){
     // initialize matrix and kth variables
     std::vector<std::vector<int>> matrix = {
-        {3, 4, 3, 6, 6},
-        {2, 2, 2, 2, 2},
-        {6, 4, 3, 2, 1},
-        {9, 3, 4, 2, 6},
-        {5, 7, 6, 8, 9}
+        {3, 4, 5, 6, 7},
+        {10, 12, 12, 12, 21},
+        {22, 23, 30, 32, 33},
+        {35, 40, 45, 50, 55},
+        {60, 70, 80, 90, 100}
     };
-    int k = 10;
-    int n = 12;
+    int k1 = 10;
+    int k2 = 12;
 
     // solution class instance
     Solution Solution;
 
     // output
-    std::cout<<"The "<<k<<"th smallest element in the matrix is: "<<Solution.kthSmallest(matrix, k)<<'\n';
-    std::cout<<"The "<<n<<"th smallest element in the matrix is: "<<Solution.kthSmallest(matrix, n)<<'\n';
+    std::cout<<"The "<<k1<<"th smallest element in the matrix is: "<<Solution.kthSmallest(matrix, k1)<<'\n';
+    std::cout<<"The "<<k2<<"th smallest element in the matrix is: "<<Solution.kthSmallest(matrix, k2)<<'\n';
 
     return 0;
 }
