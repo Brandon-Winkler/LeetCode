@@ -7,18 +7,18 @@
 class Solution {
 public:
     std::vector<std::vector<std::string>> groupAnagrams(std::vector<std::string>& strs) {
-        std::vector<std::vector<std::string>>ans;
-        std::unordered_map<std::string, std::vector<std::string>>mpp;
+        std::vector<std::vector<std::string>>ans;                       // Create a vector of vectors of strings to store the result
+        std::unordered_map<std::string, std::vector<std::string>>map;   // Create an unordered_map to associate sorted strings with their original unsorted strings
 
-        for(auto s : strs){
-            auto temp = s;
-            std::sort(temp.begin(), temp.end());
-            mpp[temp].push_back(s);
+        for(auto s : strs){                                             // Iterate through each string in the input vector 'strs'
+            auto temp = s;                                              // Create a temporary copy of the string
+            std::sort(temp.begin(), temp.end());                        // Sort the characters in the temporary string alphabetically
+            map[temp].push_back(s);                                     // Use the sorted string as a key in the map and associate it with the original string
         }
 
-        for(auto it : mpp){
-            auto temp = it.second;
-            ans.push_back(temp);
+        for(auto it : map){                                             // Iterate through each entry in the map
+            auto temp = it.second;                                      // Get the vector of original unsorted strings associated with the sorted key
+            ans.push_back(temp);                                        // Add this vector to the 'ans' vector, which collects the grouped anagrams
         }
         return ans;
     }
