@@ -24,6 +24,12 @@ int main(){
     int r = 15;
     int c = 20;
 
-    std::cout<<"The number of unique paths for the first matrix is "<<;
+    // class instance
+    Solution Solution;
+
+    // output
+    std::cout<<"The number of unique paths for the first matrix is "<<Solution.uniquePaths(rows, cols)<<'\n';
+    std::cout<<"The number of unique paths for the second matrix is "<<Solution.uniquePaths(r, c)<<'\n';
+    
     return 0;
 }
