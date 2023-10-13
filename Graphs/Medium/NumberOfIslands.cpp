@@ -3,9 +3,6 @@
 #include<queue>
 #include<iostream>
 
-const int dRow[] = {-1, 0, 1, 0}; // directional row vector
-const int dCol[] = {0, 1, 0, -1}; // directional column vector
-
 class Solution {
 public:
     void bfs(std::vector<std::vector<char>>& grid, int rIdx, int cIdx){
@@ -13,6 +10,9 @@ public:
 
         std::queue<std::pair<int,int>> indices;             // create a queue to hold indices for bfs
         indices.push({rIdx,cIdx});                          // push current indices onto que to begin bfs
+
+        int dRow[] = {-1, 0, 1, 0};                         // directional row vector
+        int dCol[] = {0, 1, 0, -1};                         // directional column vector
 
         while(!indices.empty()){                            // while que is not empty do bfs
             std::pair<int,int> cell = indices.front();      // create variable to set to front of que
