@@ -6,7 +6,7 @@
 class Solution {
 public:
     void dfs(std::vector<std::vector<int>>& grid, std::stack<std::pair<int,int>>& stk, std::vector<std::vector<bool>>& vis){
-        int dir[4][2] = {{-1,0}, {0,1}, {1,0}, {0,-1}};     // direction all vector to check adjacent cells
+        int dir[4][2] = {{-1,0}, {0,1}, {1,0}, {0,-1}};     // directional vector to check adjacent cells
 
         while(!stk.empty()){                                // while stack is not empty
             std::pair<int,int> cell = stk.top();            // set cell variable to top of stack
@@ -47,15 +47,15 @@ public:
         for(int r=0;r<ROWS;++r){                                                        // loop through the size of the rows
            pac.push({r, 0});                                                            // push the first column of the grid onto pacific stack
            atl.push({r, COLS-1});                                                       // push last column of the grid onto atlantic stack
-           pacific[r][0] = true;                                                        // set upper left corner of the pacific grid to true
-           atlantic[r][COLS-1] = true;                                                  // set lower left of the atlantic grid to true
+           pacific[r][0] = true;                                                        // set current row index at row 0 of the pacific grid to true
+           atlantic[r][COLS-1] = true;                                                  // set current row index at last row of the atlantic grid to true
         }
 
         for(int c=0;c<COLS;++c){                                                        // loop through the size of the columns
             pac.push({0, c});                                                           // push the top row of the grid onto pacific stack
             atl.push({ROWS-1, c});                                                      // push the bottom row of the grid onto atlantic stack
-            pacific[0][c] = true;                                                       // set upper right corner of the pacific grid to true
-            atlantic[ROWS-1][c] = true;                                                 // set lower right corner of the atlantic grid to true
+            pacific[0][c] = true;                                                       // set current column index at column 0 of the pacific grid to true
+            atlantic[ROWS-1][c] = true;                                                 // set current column index at last column of the atlantic grid to true
         }
 
         dfs(heights, pac, pacific);                                                     // do dfs on heights using the pacific stack to traverse from the top and left and use pacific grid to track visited
@@ -126,7 +126,7 @@ int main(){
     printVector(s2);
     std::cout<<'\n';
 
-    std::cout<<"Indices that can reach both pacific and atlantic in thrid graph are: "<<'\n';
+    std::cout<<"Indices that can reach both pacific and atlantic in third graph are: "<<'\n';
     printVector(s3);
     std::cout<<'\n';
 
