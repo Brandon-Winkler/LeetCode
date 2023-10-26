@@ -12,19 +12,18 @@ struct ListNode {
 class Solution {
 public:
     ListNode* reverseList(ListNode* head) {
-        if (head == nullptr) return nullptr;
+        if(head == nullptr) return nullptr;
 
         ListNode* prev = nullptr;
         ListNode* curr = head;
         ListNode* next = curr->next;
 
-        while (curr != nullptr) {
+        while(curr != nullptr){
             next = curr->next;
             curr->next = prev;
             prev = curr;
             curr = next;
         }
-
         return prev;
     }
 };
