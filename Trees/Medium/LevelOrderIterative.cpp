@@ -27,15 +27,15 @@ public:
         que.push(root);
 
         // loop through queue
-        while(!que.empty()) {
+        while(!que.empty()){
             std::vector<int> level; // level holds the variables inside each node of each level
             int levelSize = que.size(); // level size so that we can only push what is in each level
 
             // loop through the queue "levelSize" times and push back each value into the level subvector
-            for(int i = 0; i < levelSize; ++i) {
+            for(int i=0;i<levelSize;++i){
                 TreeNode *node = que.front();
                 que.pop();
-                if(node != nullptr) {
+                if(node != nullptr){
                     level.push_back(node->val);
                     que.push(node->left);
                     que.push(node->right);
@@ -70,12 +70,12 @@ int main() {
     std::vector<std::vector<int>> result = Solution.levelOrder(root);
 
      // output
-    std::cout << "Level Order Iterative solution: " << "\n";
-    for (const std::vector<int>& level : result) {
-        for (int value : level) {
-            std::cout << value << " ";
+    std::cout<<"Level Order Iterative solution: "<<"\n";
+    for(const std::vector<int>& level : result){
+        for(int value : level){
+            std::cout<<value<< " ";
         }
-        std::cout << '\n';
+        std::cout<<'\n';
     }
 
     return 0;
