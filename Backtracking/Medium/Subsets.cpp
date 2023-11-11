@@ -12,7 +12,7 @@ public:
     }
 private:
     void dfs(vector<int>& nums, int start, vector<int>& cur, vector<vector<int>>& res) {
-        res.push_back(cur);                  // push current subset into result vector
+        res.push_back(cur);                     // push current subset into result vector
         for(int i=start;i<nums.size();++i){     // loop through nums
             cur.push_back(nums[i]);             // push current index into subset
             dfs(nums, i+1, cur, res);           // resursively find subsets
