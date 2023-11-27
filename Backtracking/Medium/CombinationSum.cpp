@@ -5,21 +5,21 @@ using namespace std;
 class Solution {
 public:
     void backtrack(vector<int>& nums, int target, int i, vector<vector<int>>& res, vector<int>& comb){
-        if(i >= nums.size() || target < 0) return;
-        if(target == 0){
+        if(i >= nums.size() || target < 0) return;      // Base case: if we have reached the end of nums or the target is less than 0 
+        if(target == 0){                                // Base case: if the target is equal to 0 push back the empty set and return
             res.push_back(comb);
             return;
         }
 
-        comb.push_back(nums[i]);
-        backtrack(nums, target-nums[i], i, res, comb);
-        comb.pop_back();
-        backtrack(nums, target, i+1, res, comb);
+        comb.push_back(nums[i]);                       // push back the ith value into combination vector
+        backtrack(nums, target-nums[i], i, res, comb); // recurse through nums in same index and subtract the ith value from the target
+        comb.pop_back();                               // pop from the combination vector to backtrack
+        backtrack(nums, target, i+1, res, comb);       // recurse through the num vector and increment the index, keep the target the same to start new backtrack
     }   
     vector<vector<int>> combinationSum(vector<int>& candidates, int target) {
-        vector<int> comb;
-        vector<vector<int>> res;
-        backtrack(candidates,target,0,res,comb);
+        vector<int> comb;                             // combination vector to hold combinations
+        vector<vector<int>> res;                      // result vector of vectors for output
+        backtrack(candidates,target,0,res,comb);      // call backtrack function
         return res;
     }
 };
