@@ -66,7 +66,7 @@ public:
 void printMatrix(const vector<vector<char>>& matrix){
     for(const auto& row : matrix){
         for(char element : row){
-            cout<<element<< " ";
+            cout<<element<<" ";
         }
         cout<<'\n';
     }
