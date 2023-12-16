@@ -12,3 +12,16 @@ class Solution:
             if(substr == p_sort): indices.append(l)     # if substring is eqeal to sorted p then append index of left side to indices list
             l += 1                                      # iterate left side of window
         return indices
+
+# driver program
+if __name__ == '__main__':
+    # initialize strings
+    s1 = "cbaebabacd"
+    s2 = "abab"
+
+    # solution class instance
+    Solution = Solution()
+
+    #output
+    print(Solution.findAnagrams(s1,"abc"))
+    print(Solution.findAnagrams(s2,"ab"))
