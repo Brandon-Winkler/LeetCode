@@ -2,14 +2,14 @@ from typing import List
 
 class Solution:
     def pivotIndex(self, nums: List[int]) -> int:
-        partial = 0
-        total = sum(nums)
+        partial = 0                             # set partial sum to 0
+        total = sum(nums)                       # set total to sum of all values in nums array
 
-        for i in range(len(nums)):
-            total -= nums[i]
-            if(total == partial): return i
-            partial += nums[i]
-        return -1
+        for i in range(len(nums)):              # iterate through nums array
+            total -= nums[i]                    # subtract the current value from the total
+            if(total == partial): return i      # if the total is equal to partial then return the current index
+            partial += nums[i]                  # otherwise add the current value to the partial
+        return -1                               # if there is no pivot index then return -1
     
 if __name__ == '__main__':
     #initialize lists

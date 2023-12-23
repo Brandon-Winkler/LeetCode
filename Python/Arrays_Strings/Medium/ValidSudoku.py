@@ -13,12 +13,12 @@ class Solution:
                 if(                                             # return false if...
                     board[r][c] in rows[r] or                   # the value at coordinate is in the set for the associated row
                     board[r][c] in cols[c] or                   # the value at coordinate is in the set for the associated column
-                    board[r][c] in squares[(r // 3, c // 3)]    # the value at coordinate is in the set for the associated square
+                    board[r][c] in squares[(r//3, c//3)]        # the value at coordinate is in the set for the associated square
                 ):
                     return False
                 rows[r].add(board[r][c])                        # otherwise add the value at coordinate to the associated row set
                 cols[c].add(board[r][c])                        # otherwise add the value at coordinate to the associated column set
-                squares[(r // 3, c // 3)].add(board[r][c])      # otherwise add the value at coordinate to the associated square set
+                squares[(r//3, c//3)].add(board[r][c])          # otherwise add the value at coordinate to the associated square set
         return True
 
 # driver program
