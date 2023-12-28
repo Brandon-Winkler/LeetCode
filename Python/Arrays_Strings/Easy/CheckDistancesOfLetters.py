@@ -2,7 +2,16 @@ from typing import List
 
 class Solution:
     def checkDistances(self, s: str, distance: List[int]) -> bool:
-        
+        first_occur = {}                                        # first ocurrence map to track when we see the first occurence of a character
+
+        for i,char in enumerate(s):                             # loop through the given string
+            if(char not in first_occur): first_occur[char] = i  # if we haven't see n the character yet put it in the map
+            else:                                               # otherwise...
+                actual_dist = i-first_occur[char]-1             # calculate the actual distance between two occurences
+                expected_dist = distance[ord(char) - 97]        # get the expected distance from the distance array
+                if(actual_dist != expected_dist): return False  # check if the actual distance matches the expected distance
+
+        return True
 
 
 # driver program
