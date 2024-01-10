@@ -1,6 +1,23 @@
 class Solution:
     def backspaceCompare(self, s: str, t: str) -> bool:
+        stk1 = []                       # initialize stacks to keep track of previous chars
+        stk2 = []
 
+        for i in s:                     # loop through first string to look for # signs
+            if(i == '#'):               # if we see a pound sign and the stack isn't empty pop the last character
+                if(stk1):
+                    stk1.pop()
+            else:                       # otherwise append to first stack
+                stk1.append(i)
+
+        for j in t:                     # loop through second string and do the same for the second stack
+            if(j == '#'):
+                if(stk2):
+                    stk2.pop()
+            else:
+                stk2.append(j)
+
+        return str(stk1) == str(stk2)  # compare the two modified strings and return the result
 
 
 # driver program
