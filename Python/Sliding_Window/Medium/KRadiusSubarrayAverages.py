@@ -3,23 +3,23 @@ from typing import List
 
 class Solution:
     def getAverages(self, nums: List[int], k: int) -> List[int]:
-        r = 2*k+1                                   # calculate the radius of the subarrays
+        d = 2*k+1                                   # calculate the diameter of the subarrays
 
-        if(r > len(nums)): return [-1]*len(nums)    # if the radius is greater than the length of the array then we don't have enough space to calculate averages so return array of -1
+        if(d > len(nums)): return [-1]*len(nums)    # if the diameter is greater than the length of the array then we don't have enough space to calculate averages so return array of -1
         
         aves = []                                   # allocate space for averages
-        total = 0                                   # keep a running sum for each index at middle of radius
+        total = 0                                   # keep a running sum for each index at middle of diameter
 
-        for i in range(r): total+=nums[i]           # calculate the total for the first subarray
+        for i in range(d): total+=nums[i]           # calculate the total for the first subarray
 
-        aves.append(total//r)                       # calculate average for first subarray and append it to current averages
+        aves.append(total//d)                       # calculate average for first subarray and append it to current averages
 
-        for i in range(len(nums)-r):                # loop through the length of nums minus the radius
+        for i in range(len(nums)-d):                # loop through the length of nums minus the diameter
             total-=nums[i]                          # calculate next subarray total by subtracting the value at the current index from current total and
-            total+=nums[i+r]                        # add the value at the index to the right of current subarray 
-            aves.append(total//r)                   # append new total divided by radius
+            total+=nums[i+d]                        # add the value at the index to the right of current subarray 
+            aves.append(total//d)                   # append new total divided by diameter
 
-        n = [-1]*k                                  # account for numbers with inefficient radius by appending and prepending arrays of -1
+        n = [-1]*k                                  # account for numbers with inefficient diameter by appending and prepending arrays of -1
         return n+aves+n
     
 
