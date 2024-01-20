@@ -18,7 +18,6 @@ class Solution:
         return len(stk)                                         # return the length of the stack
 
 
-
 # driver program
 if __name__ == '__main__':
     # initialize strings
