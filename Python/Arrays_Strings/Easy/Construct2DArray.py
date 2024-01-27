@@ -3,7 +3,15 @@ from typing import List
 
 class Solution:
     def construct2DArray(self, original: List[int], m: int, n: int) -> List[List[int]]:
+        ans = []                                    # create answer variable to build matrix                                 
 
+        for i in range(0,len(original),n):          # loop through original array and step by n to build matrix
+            ans.append(original[i:i+n])             # append all values from index to n plus index
+
+        if(len(ans) == m and len(ans[0]) == n):     # if the size of our matrix rows and columns match m and n then return the answer
+            return ans
+
+        return []                                   # otherwise return an empty array
 
 # driver program
 if __name__ == '__main__':
