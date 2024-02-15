@@ -21,7 +21,7 @@ def print_tree(root):
         print_tree(root.left)
         print(root.val, end=' ')
         print_tree(root.right)
-    print(" ]")
+    print("]")
 
 
 # driver program
