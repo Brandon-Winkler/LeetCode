@@ -1,4 +1,5 @@
 from typing import Optional, List
+from queue import deque
 
 
 # Definition for a binary tree node.
@@ -11,17 +12,23 @@ class TreeNode:
 
 class Solution:
     def averageOfLevels(self, root: Optional[TreeNode]) -> List[float]:
+        que = deque()                                           # create que to hold levels
+        ans = []                                                # initialize answer for output
 
+        que.append(root)                                        # append root to queue to begin bfs
 
-
-def print_tree(root):
-    print("[ ")
-    if root:
-        print_tree(root.left)
-        print(root.val, end=' ')
-        print_tree(root.right)
-    print("]")
-
+        while(que):                                             
+            levelSize = len(que)                                # create variable to hold the level size
+            tot = 0                                             # create variable to hold the total of that level
+            for i in range(levelSize):                          # loop through level size
+                node = que.popleft()                            # pop and store current node
+                tot += node.val                                 # add current nodes total
+                if(node.left): que.append(node.left)            # if node has a left child then append to queue to traverse next level
+                if(node.right): que.append(node.right)          # if node has a right child then append to queue to traverse next level
+            if(levelSize != 0): ans.append(tot/levelSize)       # if level isn't empty then divide level total by level size and append to answer
+    
+        return ans
+    
 
 # driver program
 if __name__ == '__main__':
@@ -42,5 +49,5 @@ if __name__ == '__main__':
     Solution = Solution()
 
     # output
-    print(f"{Solution.averageOfLevels(root1)} are all the averages for each of the levels in {print_tree(root1)}")
-    print(f"{Solution.averageOfLevels(root2)} are all the averages for each of the levels in {print_tree(root2)}")
+    print(f"{Solution.averageOfLevels(root1)} are all the averages for each of the levels in first tree.")
+    print(f"{Solution.averageOfLevels(root2)} are all the averages for each of the levels in second tree.")
