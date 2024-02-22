@@ -11,17 +11,27 @@ class TreeNode:
 
 class Solution:
     def sumRootToLeaf(self, root: Optional[TreeNode]) -> int:
+        ans = 0
+        
+        # initialize stack to traverse tree and remember previous paths
+        stk = []
+        stk.append([root, ""])
 
-
-
-# function to print tree
-def print_tree(root):
-    print("[ ")
-    if root:
-        print_tree(root.left)
-        print(root.val, end=' ')
-        print_tree(root.right)
-    print("]")
+        # dfs on tree
+        while(len(stk) > 0):
+            # create node and path variables to track current node and current path
+            node, path = stk.pop()
+            # set current variable to value in node and cast to a string so that we can convert to decimal later
+            curr = str(node.val)
+            # concatinate current string to path
+            path += curr
+            # if we get to a leaf node then cast to decimal and add to answer
+            if(not node.left and not node.right): ans += int(path,2)
+            # otherwise push left or right node onto stack with that nodes current path
+            if(node.right): stk.append([node.right, path])
+            if(node.left): stk.append([node.left, path])
+        
+        return ans
 
 
 # driver program
@@ -41,5 +51,5 @@ if __name__ == '__main__':
     Solution = Solution()
 
     # output
-    print(f"The sum of all root to leaf binary numbers in {print_tree(root1)} is  {Solution.sumRootToLeaf(root1)}")
-    print(f"The sum of all root to leaf binary numbers in {print_tree(root2)} is  {Solution.sumRootToLeaf(root2)}")
+    print(f"The sum of all root to leaf binary numbers in tree one is {Solution.sumRootToLeaf(root1)}.")
+    print(f"The sum of all root to leaf binary numbers in tree two is {Solution.sumRootToLeaf(root2)}.")
