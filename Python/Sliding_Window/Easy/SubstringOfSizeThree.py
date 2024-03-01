@@ -1,6 +1,7 @@
 class Solution:
     def countGoodSubstrings(self, s: str) -> int:
-
+        # for every string of length 3 add one if its set length is equal to three
+        return sum(1 for c in range(len(s)-3+1) if len(set(s[c:c+3])) == 3)
 
 
 # driver program
